@@ -33,7 +33,7 @@ raw = mne.io.read_raw_fif(fname, verbose=False)
 proj=mne.read_proj(config['projection'])
 raw.add_proj(proj)
 raw_cleaned = raw.copy().apply_proj()
-raw_cleaned.save(os.path.join('out_dir','raw_cleaned.fif'))
+raw_cleaned.save(os.path.join('out_dir','meg.fif'))
 
 
 # # # == FIGURES ==
