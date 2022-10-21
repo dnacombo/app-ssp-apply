@@ -35,12 +35,10 @@ raw.add_proj(proj)
 raw_cleaned = raw.copy().apply_proj()
 raw_cleaned.save(os.path.join('out_dir','meg.fif'))
 
-
+ecg_evoked = mne.preprocessing.create_ecg_epochs(raw).average()
+ecg_evoked.apply_baseline((None, None))
 # # # == FIGURES ==
 plt.figure(1)
-raw.plot()
-plt.savefig(os.path.join('out_figs','raw.png'))
-
-plt.figure(2)
-raw.plot()
-plt.savefig(os.path.join('out_figs','raw_cleaned.png'))
+fig = mne.viz.plot_projs_joint(proj, ecg_evoked, picks_trace='MEG 0111')
+fig.suptitle('ECG projectors')
+fig.savefig(os.path.join('out_figs','joint-plot.png'))
