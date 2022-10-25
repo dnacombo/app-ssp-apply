@@ -37,6 +37,8 @@ raw_cleaned.save(os.path.join('out_dir','meg.fif'))
 
 ecg_evoked = mne.preprocessing.create_ecg_epochs(raw).average()
 ecg_evoked.apply_baseline((None, None))
+
+projs = projs[3:]
 # # # == FIGURES ==
 plt.figure(1)
 fig = mne.viz.plot_projs_joint(proj, ecg_evoked, picks_trace='MEG 0111')
