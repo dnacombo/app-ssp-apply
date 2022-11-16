@@ -42,5 +42,5 @@ proj = proj[3:]
 # # # == FIGURES ==
 plt.figure(1)
 fig = mne.viz.plot_projs_joint(proj, ecg_evoked, picks_trace='MEG 0111')
-fig.suptitle('ECG projectors')
+fig.suptitle('Projectors')
 fig.savefig(os.path.join('out_figs','joint-plot.png'))
