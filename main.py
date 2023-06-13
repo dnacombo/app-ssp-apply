@@ -28,7 +28,7 @@ with open(__location__+'/config.json') as config_json:
     config = json.load(config_json)
 
 # == LOAD DATA ==
-fname = config['fif']
+fname = config['mne']
 raw = mne.io.read_raw_fif(fname, verbose=False)
 proj=mne.read_proj(config['projection'])
 raw.add_proj(proj)
